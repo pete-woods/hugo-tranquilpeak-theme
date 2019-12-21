@@ -28,7 +28,9 @@
     {{ partial "meta.html" . }}
     <title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
 
-    <link rel="icon" href="{{ with .Site.Params.favicon }}{{ . }}{{ else }}/favicon.png{{ end }}">
+    {{ with .Site.Params.favicon }}
+    <link rel="icon" href="{{ . }}">
+    {{ end }}
     {{ with .OutputFormats.Get "RSS" }}
       <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .RelPermalink }}">
     {{ end }}
